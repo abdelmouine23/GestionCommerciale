@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FournisseurCreateDlg" widgetVar="FournisseurCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFournisseurTitle}">
+            <h:form id="FournisseurCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fournisseurController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_raisonSocial}" for="raisonSocial" />
+                        <p:inputText id="raisonSocial" value="#{fournisseurController.selected.raisonSocial}" title="#{bundle.CreateFournisseurTitle_raisonSocial}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_nomCourt}" for="nomCourt" />
+                        <p:inputText id="nomCourt" value="#{fournisseurController.selected.nomCourt}" title="#{bundle.CreateFournisseurTitle_nomCourt}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_adresse}" for="adresse" />
+                        <p:inputText id="adresse" value="#{fournisseurController.selected.adresse}" title="#{bundle.CreateFournisseurTitle_adresse}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_pays}" for="pays" />
+                        <p:selectOneMenu id="pays" value="#{fournisseurController.selected.pays}" >
+                            <f:selectItems value="#{paysController.itemsAvailableSelectOne}"
+                                           var="paysItem"
+                                           itemValue="#{paysItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_ville}" for="ville" />
+                        <p:selectOneMenu id="ville" value="#{fournisseurController.selected.ville}" >
+                            <f:selectItems value="#{villeController.itemsAvailableSelectOne}"
+                                           var="villeItem"
+                                           itemValue="#{villeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_telephone}" for="telephone" />
+                        <p:inputText id="telephone" value="#{fournisseurController.selected.telephone}" title="#{bundle.CreateFournisseurTitle_telephone}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_rc}" for="rc" />
+                        <p:inputText id="rc" value="#{fournisseurController.selected.rc}" title="#{bundle.CreateFournisseurTitle_rc}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_patente}" for="patente" />
+                        <p:inputText id="patente" value="#{fournisseurController.selected.patente}" title="#{bundle.CreateFournisseurTitle_patente}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_identifiantFiscal}" for="identifiantFiscal" />
+                        <p:inputText id="identifiantFiscal" value="#{fournisseurController.selected.identifiantFiscal}" title="#{bundle.CreateFournisseurTitle_identifiantFiscal}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_ice}" for="ice" />
+                        <p:inputText id="ice" value="#{fournisseurController.selected.ice}" title="#{bundle.CreateFournisseurTitle_ice}" />
+                        <p:outputLabel value="#{bundle.CreateFournisseurLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{fournisseurController.selected.id}" title="#{bundle.CreateFournisseurTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fournisseurController.create}" value="#{bundle.Save}" update="display,:FournisseurListForm:datalist,:growl" oncomplete="handleSubmit(args,'FournisseurCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FournisseurCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
