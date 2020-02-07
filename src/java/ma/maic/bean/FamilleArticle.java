@@ -78,7 +78,8 @@ public class FamilleArticle implements Serializable {
 
     @Override
     public String toString() {
-        return "ma.maic.bean.Famille[ id=" + id + " ]";
+        return libelle ;
     }
+
 
 }

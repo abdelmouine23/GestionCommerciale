@@ -37,13 +37,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListArticleTitle_familleArticle}"/>
                             </f:facet>
-                            <h:outputText value="#{item.familleArticle}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListArticleTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
+                            <h:outputText value="#{item.familleArticle.libelle}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{articleController.prepareCreate}" update=":ArticleCreateForm" oncomplete="PF('ArticleCreateDialog').show()"/>
