@@ -20,15 +20,15 @@
                 <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Article" outcome="/article/List.xhtml" />
-                            <p:menuitem value="Demande" outcome="/demande/List.xhtml" />
-                            <p:menuitem value="FamilleArticle" outcome="/familleArticle/List.xhtml" />
-                            <p:menuitem value="Fournisseur" outcome="/fournisseur/List.xhtml" />
-                            <p:menuitem value="PaiementDemande" outcome="/paiementDemande/List.xhtml" />
-                            <p:menuitem value="Pays" outcome="/pays/List.xhtml" />
-                            <p:menuitem value="TypePaiement" outcome="/typePaiement/List.xhtml" />
-                            <p:menuitem value="Ville" outcome="/ville/List.xhtml" />
+                        <p:menuitem value="Articles" outcome="/article/List.xhtml" icon="ui-icon-suitcase" />
+                        <p:menuitem value="Fournisseurs" outcome="/fournisseur/List.xhtml" icon="ui-icon-contact" />
+                        <p:menuitem value="Demandes" outcome="/demande/List.xhtml" icon="ui-icon-cart" />
+                        <p:menuitem value="Paiements des Demandes" outcome="/paiementDemande/List.xhtml" icon="ui-icon-link " />
+                        <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-wrench" >
+                            <p:menuitem  value="Familles des Articles" outcome="/familleArticle/List.xhtml" />
+                            <p:menuitem value="Type des Paiements" outcome="/typePaiement/List.xhtml" />
+                            <p:menuitem value="Pays" outcome="/pays/List.xhtml" icon="ui-icon-flag " />
+                            <p:menuitem value="Ville" outcome="/ville/List.xhtml" icon="ui-icon-bookmark" />
                         </p:submenu>
                     </p:menubar>
                 </h:form>

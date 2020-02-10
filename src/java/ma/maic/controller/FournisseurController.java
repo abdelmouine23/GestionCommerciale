@@ -18,6 +18,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import ma.maic.bean.Ville;
+import ma.maic.service.VilleFacade;
 
 @Named("fournisseurController")
 @SessionScoped
@@ -27,6 +29,39 @@ public class FournisseurController implements Serializable {
     private ma.maic.service.FournisseurFacade ejbFacade;
     private List<Fournisseur> items = null;
     private Fournisseur selected;
+    private List<Ville> villes;
+    @EJB
+    private VilleFacade villeFacade;
+
+    public VilleFacade getVilleFacade() {
+        return villeFacade;
+    }
+
+    public void setVilleFacade(VilleFacade villeFacade) {
+        this.villeFacade = villeFacade;
+    }
+    
+    
+
+    public void findVilleByPays() {
+        villes = villeFacade.findByPaysLibelle(getSelected().getPays().getLibelle());
+    }
+
+    public List<Ville> getVilles() {
+        return villes;
+    }
+
+    public void setVilles(List<Ville> villes) {
+        this.villes = villes;
+    }
+
+    public FournisseurFacade getEjbFacade() {
+        return ejbFacade;
+    }
+
+    public void setEjbFacade(FournisseurFacade ejbFacade) {
+        this.ejbFacade = ejbFacade;
+    }
 
     public FournisseurController() {
     }

@@ -5,6 +5,7 @@
  */
 package ma.maic.service;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,8 @@ public class VilleFacade extends AbstractFacade<Ville> {
         super(Ville.class);
     }
     
+    public List<Ville> findByPaysLibelle(String libelle) {
+        return em.createQuery("SELECT v FROM Ville v WHERE v.pays.libelle = '"+libelle+"'").getResultList();
+    
+    }
 }

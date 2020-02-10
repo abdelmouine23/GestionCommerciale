@@ -49,6 +49,9 @@ public class Ville implements Serializable {
     }
 
     public Pays getPays() {
+        if(pays==null){
+            pays = new Pays();
+        }
         return pays;
     }
 

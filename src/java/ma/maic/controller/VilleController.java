@@ -28,10 +28,17 @@ public class VilleController implements Serializable {
     private List<Ville> items = null;
     private Ville selected;
 
+    public void findByPaysLibelle() {
+        items = ejbFacade.findByPaysLibelle(getSelected().getPays().getLibelle());
+    }
+
     public VilleController() {
     }
 
     public Ville getSelected() {
+        if (selected == null) {
+            selected = new Ville();
+        }
         return selected;
     }
 
